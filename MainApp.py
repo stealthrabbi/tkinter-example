@@ -1,4 +1,6 @@
 from tkinter import Tk, Label, Button, Entry, ttk
+from tkcalendar import Calendar, DateEntry
+from tkinterclock01 import Clock
 # from tkcaln
 # from TkinterClock01
 # from TkinterClock01 import tkinterclock01
@@ -24,9 +26,15 @@ class MyFirstGUI:
                                         "February",
                                         "March",
                                         "April"])
+
         self.comboExample.pack()
         # default the selection
         self.comboExample.current(1)
+
+        self.datePicker = Calendar(font="Arial 14", selectmode='day', locale='en_US',
+                       cursor="hand1", year=2018, month=2, day=5)
+
+        self.datePicker.pack(fill="both", expand=False)
 
         self.greet_button = Button(master, text="Greet", command=self.greet)
         self.greet_button.pack()
@@ -40,6 +48,7 @@ class MyFirstGUI:
         print("edit field contains: ", self.editText.get())
         print("combo box selected item: ", self.comboExample.get())
         print("combo box selected index: ", self.comboExample.current())
+        print("selected date: ", self.datePicker.get_date())
 
 root = Tk()
 my_gui = MyFirstGUI(root)
